@@ -1,11 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
 import SideMenu from "./SideMenu";
 import Head from "next/head";
+import { useRouter } from "next/router";
 type Proptype = {
   children: React.ReactNode;
 };
 
 export default function Layout({ children }: Proptype): JSX.Element {
+  // const router = useRouter()
+  // const {user} = useUser();
+  // useEffect(()=>{
+  //   if(!user){
+  //     router.push('/login')
+  //   }else {
+  //     router.push('/dashboard')
+  //   }
+  // },[])
   return (
     <>
       <Head>

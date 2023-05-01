@@ -1,15 +1,17 @@
 import { sideMenuButtons } from "@/utils/Constants";
 import Link from "next/link";
 import { NextRouter, useRouter } from "next/router";
+import { BiLogOut } from "react-icons/Bi"
 
-const active = "bg-sky-800 text-white";
+
+const active = "bg-orange-600 text-white";
 const inActive = "bg-gray-100 hover:bg-gray-200";
 
 interface pageProp {
   children: React.ReactNode;
 }
 export default function SideMenu({ children }: pageProp) {
-  console.log(sideMenuButtons);
+
   const currentPath: NextRouter = useRouter();
   return (
     <div className="flex">
@@ -18,14 +20,24 @@ export default function SideMenu({ children }: pageProp) {
           {sideMenuButtons.map((item, index) => (
             <Link href={item.path} key={index}>
               <div
-                className={`${
-                  item.path !== currentPath.pathname ? inActive : active
-                } cursor-pointer my-4 p-3 rounded-lg inline-block`}
+                className={`${item.path !== currentPath.pathname ? inActive : active
+                  } cursor-pointer my-4 p-3 rounded-lg inline-block`}
               >
                 {item.icon}
               </div>
+
             </Link>
           ))}
+
+
+
+        </div>
+        <div className=" cursor-pointer my-4 p-3 rounded-lg inline-block bg-gray-50">
+          <Link href="">
+            <div>
+              <BiLogOut />
+            </div>
+          </Link>
         </div>
       </div>
       <main className="ml-20 w-full">{children}</main>

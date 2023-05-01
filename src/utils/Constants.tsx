@@ -1,39 +1,51 @@
 /* eslint-disable unicorn/filename-case */
-import { RxCrosshair2 } from "react-icons/rx";
+import { AiFillDashboard } from "react-icons/ai";
 import { MdTableRestaurant, MdSettings } from "react-icons/Md";
 import { BsCardList, BsGridFill } from "react-icons/Bs";
 import { FaUser } from "react-icons/Fa";
+import { BiDish } from "react-icons/Bi";
 
 export const sideMenuButtons = [
   {
     name: "Dashboard",
-    path: "/",
-    icon: <RxCrosshair2 />,
-  },
-  {
-    name: "tables",
-    path: "/Tables",
-    icon: <MdTableRestaurant />,
-  },
-
-  {
-    name: "reservations",
-    path: "/reservations",
-    icon: <BsCardList />,
+    path: "/dashboard",
+    icon: <AiFillDashboard size={20} />,
   },
   {
     name: "Tables",
-    path: "/Tables",
-    icon: <BsGridFill />,
+    path: "/dashboard/Tables",
+    icon: <MdTableRestaurant size={20} />,
+  },
+
+  {
+    name: "Reservation",
+    path: "/dashboard/Reservation",
+    icon: <BsCardList size={20} />,
+  },
+  {
+    name: "Order",
+    path: "/dashboard/Order",
+    icon: <BsGridFill size={20} />,
+  },
+  {
+    name: "Products",
+    path: "/dashboard/Product",
+    icon: <BiDish size={20} />
   },
   {
     name: "Users",
-    path: "/Users",
-    icon: <FaUser />,
+    path: "/dashboard/User",
+    icon: <FaUser size={20} />,
   },
   {
     name: "Settings",
-    path: "/Settings",
-    icon: <MdSettings />,
+    path: "/dashboard/Settings",
+    icon: <MdSettings size={20} />,
   },
 ];
+
+
+export interface ICategory {
+  name: string;
+  id: string;
+}
