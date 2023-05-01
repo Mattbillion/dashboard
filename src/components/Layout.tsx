@@ -2,6 +2,11 @@ import React, { useEffect } from "react";
 import SideMenu from "./SideMenu";
 import Head from "next/head";
 import { useRouter } from "next/router";
+//theme
+import "primereact/resources/themes/lara-light-indigo/theme.css";     
+    
+//core
+import "primereact/resources/primereact.min.css";          
 type Proptype = {
   children: React.ReactNode;
 };
