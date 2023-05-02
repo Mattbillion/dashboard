@@ -1,3 +1,4 @@
+import CategoryTest from "@/components/CategoryTest";
 import Layout from "@/components/Layout";
 import { ICategory } from "@/utils/Constants";
 import axios from "axios";
@@ -11,6 +12,7 @@ export default function Home() {
         <div className="w-full m-auto p-4 bg-white border rounded-lg overflow-y-auto">
           Dashboard
         </div>
+        <CategoryTest/>
       </div>
     </Layout>
   );

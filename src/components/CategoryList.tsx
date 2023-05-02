@@ -4,13 +4,15 @@ import { useEffect, useState, useRef } from "react";
 import AlertDialog from "../components/subcomp/AlertDialog";
 import { Toast } from "primereact/toast";
 import { ConfirmPopup } from "primereact/confirmpopup";
-
+import variables from "../styles/variable.module.scss"
 export default function CategoryList() {
   const [category, setCategory] = useState<any>();
   const [selectedId, setSelectedId] = useState<string>("");
   const [active, setActive] = useState<boolean>(false);
   const [inputValue, setInputValue] = useState<string | null>();
   const toast = useRef<Toast>(null);
+
+  console.log(variables.primaryColor);
 
   useEffect(() => {
     axios
@@ -44,23 +46,23 @@ export default function CategoryList() {
   }
 
   return (
-    <div className="p-2 border rounded-lg mt-2 bg-white">
+    <div className="p-2 border rounded-lg mt-2 bg-white w-full">
       {category &&
         category.map((item: any, index: number) => (
           <form
             key={index}
-            className="flex w-full"
+            className="flex"
             onSubmit={() => {
               console.log("SENT!");
             }}
           >
-            <div className="flex items-center justify-between p-2 rounded-lg gap-2">
+            <div className="flex w-full items-center justify-between p-2 rounded-lg gap-2">
               {selectedId === item._id && active ? (
-                <div className="flex">
+                <div className="flex w-full">
                   <input
                     onChange={(e) => setInputValue(e.target.value)}
                     defaultValue={item.name}
-                    className="flex-1 bg-red-400 p-2"
+                    className={`${variables.surfaceColor} w-full p-2 rounded-lg`}
                   />
                   <div>
                     {" "}
@@ -71,7 +73,7 @@ export default function CategoryList() {
                       accept={accept}
                       reject={reject}
                     />
-                    <div className="card flex justify-content-center">
+                    <div className={`${variables.surfaceColor} hover:${variables.hoverColor} card flex justify-content-center p-2 rounded-lg`}>
                       <input
                         className=""
                         value="Save"
@@ -82,7 +84,7 @@ export default function CategoryList() {
                   </div>
                 </div>
               ) : (
-                <div className="flex">
+                <div className="flex w-full">
                   <input
                     disabled
                     className="bg-gray-200 w-full p-2 rounded-lg text-white"
@@ -91,10 +93,10 @@ export default function CategoryList() {
                   <div
                     onClick={() => {
                       active === false && setSelectedId(item._id),
-                      setActive(true),
+                        setActive(true),
                         active == true &&
-                          selectedId !== item._id &&
-                          alert("save");
+                        selectedId !== item._id &&
+                        alert("save");
                     }}
                   >
                     <BiDish />
@@ -105,7 +107,7 @@ export default function CategoryList() {
 
               <div className="flex gap-2">
                 <div
-                  className="hover:text-white hover:bg-red-600 flex items-center p-2 bg-gray-100 rounded-lg text-slate-500"
+                  className={`hover:text-white flex surfaceColor w-full  items-center p-2 bg-gray-100 rounded-lg text-slate-500`}
                   onClick={() => deleteHandler()}
                 >
                   <BiDish />

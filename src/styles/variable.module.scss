@@ -1,0 +1,22 @@
+/* variables.module.scss */
+$primary-color: #64ff00;
+$surface-color: #f2f2f2;
+$hover-color: #0D5C63;
+
+:export {
+  primaryColor: $primary-color;
+  surfaceColor: $surface-color;
+  hoverColor: $hover-color;
+}
+
+.primaryColor {
+  background-color: $primary-color;
+}
+
+.surfaceColor {
+  background-color: $surface-color;
+}
+
+.hoverColor {
+  background-color: $hover-color;
+}
